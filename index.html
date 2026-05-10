@@ -6,12 +6,13 @@
   <title>Oneide &amp; Samir — 28.11.2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --cream:#F5F3EF;--white:#fff;--charcoal:#1c1c2e;
-      --stone:#7a8299;--gold:#7A2535;--navy:#4A6B8A;--light:#e6e1d8;--green:#32bcad;
+      --cream:#f9f6f1;--white:#fff;--charcoal:#1a1a1a;
+      --stone:#8a8278;--gold:#c8a96e;--light:#ede9e2;--green:#32bcad;
     }
     html{scroll-behavior:smooth}
     body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--charcoal);overflow-x:hidden}
@@ -286,9 +287,9 @@
 </nav>
 
 <section class="hero" id="inicio">
-  <div class="hero-ambient"></div>
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <img id="stampLogo" class="hero-stamp" alt="Oneide &amp; Samir">
     <div class="hero-names">Oneide <span class="hero-ampersand">&amp;</span> Samir</div>
     <div class="hero-line"></div>
     <div class="hero-date">28 de Novembro de 2026</div>
@@ -304,7 +305,7 @@
 
 <section id="historia" class="fade-in" style="max-width:900px">
   <span class="section-label">Nossa História</span>
-  <h2 class="section-title">Uma história <em>de amor</em></h2>
+  <h2 class="section-title">De amigos de infância <em>ao amor eterno</em></h2>
   <div class="historia-layout">
     <img id="historiaImg" class="historia-img" alt="Oneide e Samir">
     <div class="historia-text">
@@ -334,8 +335,9 @@
   <div class="local-panel active" id="tab-campo">
     <div class="local-layout">
       <div class="local-info">
-        <h3>Aquiraz Riviera Beach Resort</h3>
-        <p>Um cenário único no Ceará: resort com vista privilegiada para o oceano, brisa constante do Atlântico e o pôr do sol mais bonito do litoral cearense. Um palco à altura do momento mais especial de nossas vidas.</p>
+        <h3>Aquiraz Riviera Golf Club</h3>
+        <p>O único campo de golfe com 18 buracos do Ceará, projetado pelo renomado Donald Steel. São 80 hectares de natureza exuberante e mais de 1.800 metros de frente para o oceano na Praia da Marambaia.</p>
+        <p>O campo se divide em dois roteiros distintos: o <em>Ocean Course</em>, com buracos à beira do Atlântico, e o <em>Dunes Course</em>, entre as dunas deslumbrantes do litoral cearense.</p>
         <div class="local-details">
           <div class="local-detail-item">📍 Av. Marginal do Empreendimento, s/n — Praia da Marambaia, Aquiraz, CE</div>
           <div class="local-detail-item">📅 28 de Novembro de 2026 · Cerimônia às 18h</div>
@@ -675,7 +677,7 @@ function switchTab(id,btn){
 }
 
 // ── EMAILJS ───────────────────────────────────────────────────────────────────
-// Notificações via Formsubmit + ntfy
+emailjs.init('N7brr25xHkLeWFYw_');
 async function confirmPresence(){
   const name=document.getElementById('guestName').value.trim();
   if(!name){document.getElementById('guestName').focus();document.getElementById('guestName').style.borderColor='#e88';return;}
